@@ -2,7 +2,7 @@
   "name": "priority-list",
   "version": "1.0.0",
   "description": "A list with priorities",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "directories": {
     "lib": "lib",
     "test": "test"

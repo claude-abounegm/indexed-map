@@ -4,18 +4,21 @@ const {
     assert
 } = require('chai');
 
-function assertEqualNodes(array, expectedList) {
-    console.log(array);
-    let index = 0;
-    let items = array.filter(item => !item.isHead && item !== expectedList[index++]);
-    assert(items.length === 0);
-}
-
 const PositionalList = require('../../lib/PositionalList');
 
-const list = new PositionalList();
+function assertEqualNodes(array, expectedList) {
+    let index = 0;
+    let items = array.filter(item => item !== expectedList[index++]);
+    assert(items.length === 0, 'should have the correct order');
+}
 
-list.set('A', 'A');
-list.set('B', 'B');
+describe('linkedlist test', function () {
+    it('should work', function () {
+        const list = new PositionalList();
 
-assertEqualNodes(list.toArray(), ['A', 'B']);
+        list.set('A', 'A');
+        list.set('B', 'B');
+
+        assertEqualNodes(list.toArray(), ['A', 'B']);
+    });
+});
