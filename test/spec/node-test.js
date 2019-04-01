@@ -4,22 +4,20 @@ const {
     assert
 } = require('chai');
 
-const PositationalNode = require('../../lib/PositationalNode');
+const PriorityNode = require('../../lib/PriorityNode');
 
 describe('Node', function () {
     it('should work', function () {
         // A <-> B
-        const A = new PositationalNode('A');
-        const B = new PositationalNode('B');
-        B.insertAfter(A);
+        const A = new PriorityNode('A', 'A');
+        const B = new PriorityNode('B', 'B', A);
         assert(A.next === B);
         assert(A.prev === null);
         assert(B.next === null);
         assert(B.prev === A);
 
         // A <-> C <-> B
-        const C = new PositationalNode('C');
-        C.insertAfter(A);
+        const C = new PriorityNode('C', 'C', A);
         assert(A.next === C);
         assert(A.prev === null);
         assert(B.next === null);

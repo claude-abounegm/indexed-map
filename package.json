@@ -1,7 +1,7 @@
 {
-  "name": "priority-list",
+  "name": "least-priority-map",
   "version": "1.0.0",
-  "description": "A list with priorities",
+  "description": "A simple least priority map",
   "main": "./lib/index.js",
   "directories": {
     "lib": "lib",
