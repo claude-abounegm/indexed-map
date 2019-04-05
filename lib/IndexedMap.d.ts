@@ -4,15 +4,15 @@ interface KeyValuePair<K, V> {
     readonly value: V;
 }
 
-declare class PriorityMap<K, V> {
+declare class IndexedMap<K, V> {
     constructor(maxIndex?: number);
 
     readonly first: KeyValuePair<K, V> | undefined;
     readonly size: number;
 
-    add(key: K, value: V, index?: number): PriorityMap<K, V>;
-    update(key: K, value: V): PriorityMap<K, V>;
-    clear(): PriorityMap<K, V>;
+    add(key: K, value: V, index?: number): IndexedMap<K, V>;
+    update(key: K, value: V): IndexedMap<K, V>;
+    clear(): IndexedMap<K, V>;
 
     pop(indexIncrement?: number): KeyValuePair<K, V> | undefined;
     get(key: K): KeyValuePair<K, V>;
@@ -27,4 +27,4 @@ declare class PriorityMap<K, V> {
     entriesArray<T>(transform: (entry: KeyValuePair<K, V>) => T): T[];
 }
 
-export = PriorityMap;
+export = IndexedMap;

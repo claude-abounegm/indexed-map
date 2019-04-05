@@ -4,20 +4,20 @@ const {
     assert
 } = require('chai');
 
-const PriorityNode = require('../../lib/PriorityNode');
+const IndexedNode = require('../../lib/IndexedNode');
 
 describe('Node', function () {
     it('should work', function () {
         // A <-> B
-        const A = new PriorityNode('A', 'A');
-        const B = new PriorityNode('B', 'B', A);
+        const A = new IndexedNode('A', 'A');
+        const B = new IndexedNode('B', 'B', A);
         assert(A.next === B);
         assert(A.prev === null);
         assert(B.next === null);
         assert(B.prev === A);
 
         // A <-> C <-> B
-        const C = new PriorityNode('C', 'C', A);
+        const C = new IndexedNode('C', 'C', A);
         assert(A.next === C);
         assert(A.prev === null);
         assert(B.next === null);

@@ -1,8 +1,8 @@
 {
-  "name": "priority-map",
+  "name": "indexed-map",
   "version": "1.0.0",
-  "description": "A simple least priority map",
-  "main": "./lib/index.js",
+  "description": "A simple ascending indexed map",
+  "main": "./index.js",
   "directories": {
     "lib": "lib",
     "test": "test"
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/claude-abounegm/priority-list.git"
+    "url": "git+https://github.com/claude-abounegm/indexed-map.git"
   },
   "author": "Claude Abounegm",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/claude-abounegm/priority-list/issues"
+    "url": "https://github.com/claude-abounegm/indexed-map/issues"
   },
-  "homepage": "https://github.com/claude-abounegm/priority-list#readme",
+  "homepage": "https://github.com/claude-abounegm/indexed-map#readme",
   "dependencies": {
     "lodash": "^4.17.11"
   },

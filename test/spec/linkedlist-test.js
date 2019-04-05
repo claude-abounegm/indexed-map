@@ -4,7 +4,7 @@ const {
     assert
 } = require('chai');
 
-const PriorityMap = require('../../lib');
+const PriorityMap = require('../../');
 
 function assertEqualNodes(array, expectedList) {
     let index = 0;
