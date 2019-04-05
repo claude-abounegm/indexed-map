@@ -1,28 +1,30 @@
-interface KeyValuePair<V, K> {
+interface KeyValuePair<K, V> {
     index: number;
     readonly key: K;
     readonly value: V;
 }
 
-declare class PriorityMap<V, K = string> {
-    constructor();
+declare class PriorityMap<K = string, V> {
+    constructor(maxIndex?: number);
 
-    readonly first: V;
+    readonly first: KeyValuePair<K, V> | undefined;
     readonly size: number;
 
-    add(key: K, value: V, index?: number): PriorityMap<V, K>;
-    update(key: K, value: V): PriorityMap<V, K>;
-    clear(): PriorityMap<V, K>;
+    add(key: K, value: V, index?: number): PriorityMap<K, V>;
+    update(key: K, value: V): PriorityMap<K, V>;
+    clear(): PriorityMap<K, V>;
 
+    pop(indexIncrement?: number): KeyValuePair<K, V> | undefined;
+    get(key: K): KeyValuePair<K, V>;
+
+    has(key: K): boolean;
     delete(key: K): boolean;
 
-    get(key: K): KeyValuePair<V, K>;
+    entries(): IterableIterator<KeyValuePair<K, V>>;
+    entries<T>(transform: (entry: KeyValuePair<K, V>) => T): IterableIterator<T>;
 
-    entries(): IterableIterator<KeyValuePair<V, K>>;
-    entries<T>(transform: (entry: KeyValuePair<V, K>) => T): IterableIterator<T>;
-
-    entriesArray(): KeyValuePair<V, K>[];
-    entriesArray<T>(transform: (entry: KeyValuePair<V, K>) => T): T[];
+    entriesArray(): KeyValuePair<K, V>[];
+    entriesArray<T>(transform: (entry: KeyValuePair<K, V>) => T): T[];
 }
 
 export = PriorityMap;
