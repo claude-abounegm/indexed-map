@@ -1,1 +1,3 @@
-# priority-list
+# indexed-map
+
+A simple ascending indexed map
