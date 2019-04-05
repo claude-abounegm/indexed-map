@@ -4,7 +4,7 @@ interface KeyValuePair<K, V> {
     readonly value: V;
 }
 
-declare class PriorityMap<K = string, V> {
+declare class PriorityMap<K, V> {
     constructor(maxIndex?: number);
 
     readonly first: KeyValuePair<K, V> | undefined;
