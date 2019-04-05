@@ -25,6 +25,8 @@ declare class IndexedMap<K, V> {
 
     entriesArray(): KeyValuePair<K, V>[];
     entriesArray<T>(transform: (entry: KeyValuePair<K, V>) => T): T[];
+
+    on(event: 'available', listener: () => void);
 }
 
 export = IndexedMap;
