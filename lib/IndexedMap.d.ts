@@ -15,18 +15,16 @@ declare class IndexedMap<K, V> {
     clear(): IndexedMap<K, V>;
 
     pop(indexIncrement?: number): KeyValuePair<K, V> | undefined;
-    get(key: K): KeyValuePair<K, V>;
+    delete(key: K): KeyValuePair<K, V> | undefined;
 
     has(key: K): boolean;
-    delete(key: K): boolean;
+    get(key: K): KeyValuePair<K, V>;
 
     entries(): IterableIterator<KeyValuePair<K, V>>;
     entries<T>(transform: (entry: KeyValuePair<K, V>) => T): IterableIterator<T>;
 
     entriesArray(): KeyValuePair<K, V>[];
     entriesArray<T>(transform: (entry: KeyValuePair<K, V>) => T): T[];
-
-    on(event: 'available', listener: () => void);
 }
 
 export = IndexedMap;
