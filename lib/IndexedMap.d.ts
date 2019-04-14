@@ -10,15 +10,16 @@ declare class IndexedMap<K, V> {
     readonly first: KeyValuePair<K, V> | undefined;
     readonly size: number;
 
-    add(key: K, value: V, index?: number): IndexedMap<K, V>;
-    update(key: K, value: V): IndexedMap<K, V>;
     clear(): IndexedMap<K, V>;
-
-    pop(indexIncrement?: number): KeyValuePair<K, V> | undefined;
-    delete(key: K): KeyValuePair<K, V> | undefined;
 
     has(key: K): boolean;
     get(key: K): KeyValuePair<K, V>;
+
+    add(key: K, value: V, index?: number): KeyValuePair<K, V>;
+    update(key: K, value: V): KeyValuePair<K, V>;
+    delete(key: K): KeyValuePair<K, V> | undefined;
+
+    pop(indexIncrement?: number): KeyValuePair<K, V> | undefined;
 
     entries(): IterableIterator<KeyValuePair<K, V>>;
     entries<T>(transform: (entry: KeyValuePair<K, V>) => T): IterableIterator<T>;
