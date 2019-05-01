@@ -4,44 +4,44 @@ const {
     assert
 } = require('chai');
 
-const PriorityMap = require('../../');
+const WeightedMap = require('../../');
 
 function assertEqualNodes(array, expectedList) {
-    let index = 0;
-    let items = array.filter(item => item.key === expectedList[index++]);
+    let weight = 0;
+    let items = array.filter(item => item.key === expectedList[weight++]);
     assert(items.length === expectedList.length, 'should have the correct order');
 }
 
-describe('linkedlist test', function () {
+describe('weighted map test', function () {
     it('should work', function () {
-        const list = new PriorityMap();
-        list.add('A', { key: 'hello1' });
-        list.add('B', { key: 'hello2' });
-        list.add('C', { key: 'hello3' });
+        const map = new WeightedMap();
+        map.add('A', { key: 'hello1' });
+        map.add('B', { key: 'hello2' });
+        map.add('C', { key: 'hello3' });
 
-        assertEqualNodes(list.entriesArray(), ['A', 'B', 'C']);
+        assertEqualNodes(map.entriesArray(), ['A', 'B', 'C']);
     });
 
-    it('should change order when index is updated', function() {
-        const list = new PriorityMap();
-        list.add('A', { key: 'hello1' });
-        list.add('B', { key: 'hello2' });
-        list.add('C', { key: 'hello3' });
-        list.add('D', { key: 'hello4' });
-        list.add('E', { key: 'hello5' });
+    it('should change order when weight is updated', function() {
+        const map = new WeightedMap();
+        map.add('A', { key: 'hello1' });
+        map.add('B', { key: 'hello2' });
+        map.add('C', { key: 'hello3' });
+        map.add('D', { key: 'hello4' });
+        map.add('E', { key: 'hello5' });
 
-        assertEqualNodes(list.entriesArray(), ['A', 'B', 'C', 'D', 'E']);
-        list.get('B').index += 1;
-        list.get('A').index += 1;
+        assertEqualNodes(map.entriesArray(), ['A', 'B', 'C', 'D', 'E']);
+        map.get('B').weight += 1;
+        map.get('A').weight += 1;
 
-        assertEqualNodes(list.entriesArray(), ['C', 'D', 'E', 'B', 'A']);
+        assertEqualNodes(map.entriesArray(), ['C', 'D', 'E', 'B', 'A']);
 
-        list.get('B').index -= 1;
+        map.get('B').weight -= 1;
 
-        assertEqualNodes(list.entriesArray(), ['C', 'D', 'E', 'B', 'A']);
+        assertEqualNodes(map.entriesArray(), ['C', 'D', 'E', 'B', 'A']);
 
-        list.get('C').index = 2;
+        map.get('C').weight = 2;
 
-        assertEqualNodes(list.entriesArray(), ['D', 'E', 'B', 'A', 'C']);
+        assertEqualNodes(map.entriesArray(), ['D', 'E', 'B', 'A', 'C']);
     });
 });

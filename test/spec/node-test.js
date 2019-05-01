@@ -4,20 +4,20 @@ const {
     assert
 } = require('chai');
 
-const IndexedNode = require('../../lib/IndexedNode');
+const WeightedNode = require('../../lib/WeightedNode');
 
 describe('Node', function () {
     it('should work', function () {
         // A <-> B
-        const A = new IndexedNode('A', 'A');
-        const B = new IndexedNode('B', 'B', A);
+        const A = new WeightedNode('A', 'A');
+        const B = new WeightedNode('B', 'B', A);
         assert(A.next === B);
         assert(A.prev === null);
         assert(B.next === null);
         assert(B.prev === A);
 
         // A <-> C <-> B
-        const C = new IndexedNode('C', 'C', A);
+        const C = new WeightedNode('C', 'C', A);
         assert(A.next === C);
         assert(A.prev === null);
         assert(B.next === null);

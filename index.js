@@ -1,1 +1,1 @@
-module.exports = require('./lib/IndexedMap');
+module.exports = require('./lib/WeightedMap');
